@@ -26,19 +26,16 @@ function setNameText(name) {
 }
 
 function handleSlider(e) {
-  const target = e.target.closest('li') //1. 이벤트 클릭한 타켓의 부모중 li를 찾아서 변수지정
+  const target = e.target.closest('li')
   if (!target) return
 
   const list = [...ul.children]
-  list.forEach((li) => removeClass(li, 'is-active')) //3.is-active 제거하기위해 배열로 변환하고 forEach반복문 사용
-  addClass(target, 'is-active') // 2.그 li 에  is-active 생성
+  list.forEach((li) => removeClass(li, 'is-active'))
+  addClass(target, 'is-active')
 
   const index = attr(target, 'data-index')
-
   setBgColor(`${data[index - 1].color[0]}`)
-
   setImage(`./assets/${data[index - 1].name}.jpeg`, `${data[index - 1].alt}`)
-
   setNameText(data[index - 1].name)
 }
 
